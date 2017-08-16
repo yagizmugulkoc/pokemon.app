@@ -1,0 +1,29 @@
+{
+  "name": "pokemon.app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yagizmugulkoc/pokemon.app.git"
+  },
+  "keywords": [
+    "pokedex"
+  ],
+  "author": "Yağız Muğulkoç",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yagizmugulkoc/pokemon.app/issues"
+  },
+  "homepage": "https://github.com/yagizmugulkoc/pokemon.app#readme",
+  "dependencies": {
+    "babel-preset-env": "^1.6.0",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "mongoose": "^4.11.7",
+    "nodemon": "^1.11.0"
+  }
+}
