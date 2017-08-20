@@ -11,14 +11,14 @@ mongoose.connection.on('connected', () => {
 });
 
 const app = express();
-const typeRoutes = require('./routes/type');
+const routes = require('./routes/routes');
 
 const port = 3000;
 
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use('/', typeRoutes);
+app.use('/', routes);
 
 app.listen(port, () => {
     console.log('Server running at : ' + port);
