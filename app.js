@@ -1,6 +1,7 @@
 const express = require('express'),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
+    path = require('path'),
     config = require('./config/database'),
     cors = require('cors');
 
@@ -16,6 +17,9 @@ const routes = require('./routes/routes');
 const port = 3000;
 
 app.use(cors());
+
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(bodyParser.json());
 
 app.use('/', routes);
