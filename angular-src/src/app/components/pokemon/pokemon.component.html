@@ -1,3 +1,21 @@
-<p>
-  pokemon works!
-</p>
+<div class="container">
+  <h1 class="page-header header">{{pokemon?.name}}</h1>
+  <div class="row">
+    <div class="col-md-6">
+      <ul class="list-group">
+        <li class="list-group-item">Attack : {{pokemon?.baseAttack}}</li>
+        <li class="list-group-item">Defence : {{pokemon?.baseDefence}}</li>
+        <li class="list-group-item">Stamina : {{pokemon?.baseStamina}}</li>
+        <li class="list-group-item">
+          Types : <span *ngFor="let type of pokemon?.type" [style.background-color] = "type?.color">{{type?.name}}</span>
+        </li>
+        <li class="list-group-item">
+          Moves : <span *ngFor="let move of pokemon?.moves">{{move?.name}}</span>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <img src="{{pokemon?.imageUrl}}" class="pull-right">
+    </div>
+  </div>
+</div>

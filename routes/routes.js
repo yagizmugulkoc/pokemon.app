@@ -9,6 +9,7 @@ const express = require('express'),
 router.post('/addType', (req, res, next) => {
     let newType = new Type({
         name: req.body.name,
+        color: req.body.color,
         effectiveAgainst: req.body.effectiveAgainst.map((effectiveType) => {
             return mongoose.Types.ObjectId(effectiveType);
         }),
@@ -28,6 +29,7 @@ router.put('/updateType/:_id', (req, res, next) => {
     const id = req.params._id;
     const type = {};
     type.name = req.body.name;
+    type.color = req.body.color;
     type.weakAgainst = req.body.weakAgainst.map((weakType) => {
         return mongoose.Types.ObjectId(weakType);
     });
@@ -66,6 +68,7 @@ router.get('/type/:_name', (req, res) => {
 router.post('/addMove', (req, res, next) => {
     let newMove = new Move({
         name: req.body.name,
+        imageUrl: req.body.imageUrl,
         type: mongoose.Types.ObjectId(req.body.type),
         damage: req.body.damage,
         energy: req.body.energy,
@@ -97,18 +100,25 @@ router.get('/move', (req, res) => {
 });
 
 router.post('/addPokemon', (req, res, next) => {
+    if (req.body.nextEvolutions === null)
+        req.body.nextEvolutions = [];
     let newPokemon = new Pokemon({
         name: req.body.name,
-        type: mongoose.Types.ObjectId(req.body.type),
+        imageUrl: req.body.imageUrl,
+        type: req.body.type.map((type) => {
+            return mongoose.Types.ObjectId(type);
+        }),
         weight: req.body.weight,
         height: req.body.height,
         baseAttack: req.body.baseAttack,
         baseDefence: req.body.baseDefence,
         baseStamina: req.body.baseStamina,
         moves: req.body.moves.map((move) => {
-            return mongoose.SchemaTypes.ObjectId(move);
+            return mongoose.Types.ObjectId(move);
         }),
-        nextEvolutions: req.body.nextEvolutions
+        nextEvolutions: req.body.nextEvolutions.map((nextEvo) => {
+            return mongoose.Types.ObjectId(nextEvo);
+        })
     });
 
     Pokemon.addPokemon(newPokemon, (err, pokemon) => {
@@ -143,6 +153,7 @@ router.get('/:pokemonName', (req, res) => {
 
 router.put('/updatePokemon/:_id', (req, res, next) => {
     const pokemon = {};
+    pokemon.imageUrl = req.body.imageUrl;
     pokemon.moves = req.body.moves.map((move) => {
         return mongoose.Types.ObjectId(move);
     });

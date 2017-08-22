@@ -11,6 +11,9 @@ const pokemonSchema = mongoose.Schema({
         required: true,
         unique: true
     },
+    imageUrl: {
+        type: String
+    },
     weight: {
         type: SchemaTypes.Double
     },
@@ -26,10 +29,12 @@ const pokemonSchema = mongoose.Schema({
     baseStamina: {
         type: Number
     },
-    type: {
-        type: SchemaTypes.ObjectId,
-        ref: 'Type'
-    },
+    type: [
+        {
+            type: SchemaTypes.ObjectId,
+            ref: 'Type'
+        }
+    ],
     moves: [
         {
             type: SchemaTypes.ObjectId,
@@ -54,6 +59,7 @@ module.exports.getPokemonByName = function (name, callback) {
     const query = {name: name};
     Pokemon.findOne(query)
         .populate('moves')
+        .populate('type')
         .exec(callback);
 };
 
@@ -63,9 +69,12 @@ module.exports.getPokemonByTypeName = function (type, sort, callback) {
         if (type === null) {
             type = {_id: null};
         }
-        const query = {type: type._id};
+        let query = {};
+        if (type._id !== null)
+            query = {type: type._id};
         Pokemon.find(query)
             .populate("moves")
+            .populate("type")
             .sort(sort)
             .exec(callback);
     });

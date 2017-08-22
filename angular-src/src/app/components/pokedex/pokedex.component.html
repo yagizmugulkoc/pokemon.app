@@ -1,0 +1,12 @@
+<div class="col-md-3 pokemon" *ngFor="let pokemon of pokemons; let i = index">
+  <a [routerLink] = "['/', pokemon.name]">
+    <div class="pokemonImage" [style.background-image]="'url('+pokemon.imageUrl+')'"></div>
+    <h5>#00{{i + 1}}</h5>
+    <h3>{{pokemon?.name}}</h3>
+    <ul>
+      <li *ngFor="let type of pokemon.type">
+        <h5 class="pokemonType" [style.background-color]="type.color"><a [routerLink] = "['/type/', type.name]">{{type.name}}</a></h5>
+      </li>
+    </ul>
+  </a>
+</div>

@@ -1,0 +1,35 @@
+<h2 class="page-header">Add Move Form</h2>
+<form (submit)="onAddMoveSubmit()">
+  <div class="form-group">
+    <label>Move Name</label>
+    <input type="text" name="name" class="form-control" [(ngModel)]="name">
+  </div>
+  <div class="form-group">
+    <label>Image URL</label>
+    <input type="text" name="imageUrl" class="form-control" [(ngModel)]="imageUrl">
+  </div>
+  <div class="form-group">
+    <label>Damage</label>
+    <input type="text" name="damage" class="form-control" [(ngModel)]="damage">
+  </div>
+  <div class="form-group">
+    <label>Energy</label>
+    <input type="text" name="energy" class="form-control" [(ngModel)]="energy">
+  </div>
+  <div class="form-group">
+    <label>Damage Per Second</label>
+    <input type="text" name="dps" class="form-control" [(ngModel)]="dps">
+  </div>
+  <div class="form-group">
+    <label>Duration</label>
+    <input type="text" name="duration" class="form-control" [(ngModel)]="duration">
+  </div>
+  <div class="form-group">
+    <label>Type</label>
+    <select name="type" id="" [(ngModel)]="type" class="form-control" (change)="onTypeChange($event.target.value)">
+      <option value="">Please Select</option>
+      <option *ngFor="let typeOption of types" value="{{typeOption?.id}}">{{typeOption?.name}}</option>
+    </select>
+  </div>
+  <input type="submit" class="btn btn-primary pull-right" value="Save">
+</form>

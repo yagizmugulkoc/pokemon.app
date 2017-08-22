@@ -1,0 +1,29 @@
+<h2 class="page-header">Add Type Form</h2>
+<form (submit)="onAddTypeSubmit()">
+  <div class="form-group">
+    <label>Type Name</label>
+    <input type="text" class="form-control" [(ngModel)]="name" name="name">
+  </div>
+  <div class="form-group">
+    <label>Color</label>
+    <input [(colorPicker)]="color" name="color" [style.background]="color"
+           (colorPickerChange)="rgbaText=onChangeColorHex8($event);color=$event" class="form-control">
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Weak Against</label>
+        <ss-multiselect-dropdown [options]="typeOptions" [(ngModel)]="weakAgainst"
+                                 [ngModelOptions]="{standalone : true}"></ss-multiselect-dropdown>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Effective Against</label>
+        <ss-multiselect-dropdown [options]="typeOptions" [(ngModel)]="effectiveAgainst"
+                                 [ngModelOptions]="{standalone : true}"></ss-multiselect-dropdown>
+      </div>
+    </div>
+  </div>
+  <input type="submit" class="btn btn-primary pull-right" value="Save">
+</form>

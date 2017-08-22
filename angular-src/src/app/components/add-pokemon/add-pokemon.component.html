@@ -1,0 +1,48 @@
+<h2 class="page-title">Add Pokemon Form</h2>
+<form (submit)="onAddPokemonSubmit()">
+  <div class="form-group">
+    <label>Pokemon Name</label>
+    <input type="text" name="name" class="form-control" [(ngModel)]="name">
+  </div>
+  <div class="form-group">
+    <label>Image URL</label>
+    <input type="text" name="imageUrl" class="form-control" [(ngModel)]="imageUrl">
+  </div>
+  <div class="form-group">
+    <label>Weight</label>
+    <input type="text" name="weight" class="form-control" [(ngModel)]="weight">
+  </div>
+  <div class="form-group">
+    <label>Height</label>
+    <input type="text" name="height" class="form-control" [(ngModel)]="height">
+  </div>
+  <div class="form-group">
+    <label>Attack</label>
+    <input type="text" name="baseAttack" class="form-control" [(ngModel)]="baseAttack">
+  </div>
+  <div class="form-group">
+    <label>Defence</label>
+    <input type="text" name="baseDefence" class="form-control" [(ngModel)]="baseDefence">
+  </div>
+  <div class="form-group">
+    <label>Stamina</label>
+    <input type="text" name="baseStamina" class="form-control" [(ngModel)]="baseStamina">
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label>Pokemon Types</label>
+        <ss-multiselect-dropdown [options]="typeOptions" [(ngModel)]="types" [ngModelOptions]="{standalone : true}"></ss-multiselect-dropdown>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <label>Pokemon Moves</label>
+      <ss-multiselect-dropdown [options]="moveOptions" [(ngModel)]="moves" [ngModelOptions]="{standalone : true}"></ss-multiselect-dropdown>
+    </div>
+    <div class="col-md-4">
+      <label>Next Evolutions</label>
+      <ss-multiselect-dropdown [options]="nextEvolutionOptions" [(ngModel)]="nextEvolutions" [ngModelOptions]="{standalone : true}"></ss-multiselect-dropdown>
+    </div>
+  </div>
+  <input type="submit" class="btn btn-primary pull-right" value="Save">
+</form>

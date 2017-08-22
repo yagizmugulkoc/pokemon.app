@@ -13,6 +13,9 @@ const moveSchema = mongoose.Schema({
         type: SchemaTypes.ObjectId,
         ref: 'Type'
     },
+    imageUrl: {
+        type: String
+    },
     damage: {
         type: Number
     },
@@ -36,7 +39,7 @@ module.exports.addMove = function (newMove, callback) {
 module.exports.listMovesByType = function (typeName, callback) {
     Type.getTypeByName(typeName, (err, type) => {
         if (err) throw err;
-        if (type === null){
+        if (type === null) {
             type = {};
             type._id = null;
         }

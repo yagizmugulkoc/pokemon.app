@@ -1,3 +1,28 @@
-<p>
-  type works!
-</p>
+<div class="container" ng-if="type">
+  <h1 class="page-header" [style.background-color] = "type?.color">{{type?.name}}</h1>
+  <div class="row">
+    <div class="col-md-6">
+      <h4>Weak Against : </h4>
+      <ul class="list-group">
+        <li *ngFor="let weakAgainst of type?.weakAgainst" [style.background-color]="weakAgainst.color" class="list-group-item types"><a
+          [routerLink]="['/type/', weakAgainst.name]">{{weakAgainst?.name}}</a></li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <h4>Effective Against : </h4>
+      <ul class="list-group">
+        <li *ngFor="let effectiveAgainst of type?.effectiveAgainst" [style.background-color]="effectiveAgainst.color" class="list-group-item types"><a
+          [routerLink]="['/type/', effectiveAgainst.name]">{{effectiveAgainst?.name}}</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row" ng-if="pokemons">
+    <div class="col-md-3 pokemon" *ngFor="let pokemon of pokemons; let i = index">
+      <a [routerLink] = "['/', pokemon.name]">
+        <div class="pokemonImage" [style.background-image]="'url('+pokemon.imageUrl+')'"></div>
+        <h5>#00{{i + 1}}</h5>
+        <h3>{{pokemon?.name}}</h3>
+      </a>
+    </div>
+  </div>
+</div>

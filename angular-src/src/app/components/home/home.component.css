@@ -1,0 +1,40 @@
+.homeType:hover *{
+    text-decoration: none;
+}
+
+.homeType h2:hover{
+  opacity: 0.9;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+  font-weight: 600;
+}
+
+.homeType h4{
+  color: #93c54b;
+}
+
+.homeType h4:hover{
+  color: #93c54b;
+}
+
+h2.page-header.typeHeader{
+  color: #ffffff;
+  background-color: #5ba6ff;
+  padding-top: 10px;
+  padding-bottom: 12px;
+}
+
+.list-group-item a{
+  color: #ffffff;
+}
+
+.list-group-item:hover{
+  opacity: 0.9;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+}
+
+
+.list-group-item:hover a{
+  font-weight: 600;
+}

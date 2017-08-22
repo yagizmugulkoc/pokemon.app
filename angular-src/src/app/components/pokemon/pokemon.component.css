@@ -1,0 +1,14 @@
+.page-header.header{
+  margin-top: 0;
+  padding: 15px;
+  background-color: #00b3ee;
+  color: #ffffff;
+}
+
+.list-group-item span{
+  margin-left: 15px;
+  padding: 10px;
+  color: #ffffff;
+  font-size: 15px;
+  border-radius: 6px;
+}

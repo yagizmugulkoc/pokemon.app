@@ -9,6 +9,9 @@ const typeSchema = new mongoose.Schema({
         unique: true,
         required: true
     },
+    color: {
+        type: String
+    },
     effectiveAgainst: [
         {
             type: SchemaTypes.ObjectId,
